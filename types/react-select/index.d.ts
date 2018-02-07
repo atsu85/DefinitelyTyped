@@ -520,9 +520,12 @@ export interface ReactAsyncSelectProps<TValue = OptionValues> extends ReactSelec
     autoload?: boolean;
 
     /**
-     *  object to use to cache results; can be null to disable cache
+     *  object to use to cache results; can be null to disable cache.
+     *  Note: reassigning cache has no effect. For cleaning cache,
+     *  you should store the reference of the cache and update the same cache instance
+     *  (for example deleting all properties)
      */
-    cache?: { [key: string]: any } | boolean;
+    cache?: { [key: string]: any } | false;
 
     /**
      *  whether to strip diacritics when filtering (shared with Select)
